@@ -1,4 +1,4 @@
-package com.example.jetpack.network
+package com.example.jetpack.data.network
 
 import okhttp3.ResponseBody
 

@@ -1,4 +1,4 @@
-package com.example.jetpack.auth
+package com.example.jetpack.ui.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

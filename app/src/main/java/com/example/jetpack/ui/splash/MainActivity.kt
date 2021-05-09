@@ -1,9 +1,10 @@
-package com.example.jetpack
+package com.example.jetpack.ui.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.jetpack.auth.AuthActivity
+import com.example.jetpack.R
+import com.example.jetpack.ui.auth.AuthActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

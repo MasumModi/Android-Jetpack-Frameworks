@@ -1,4 +1,4 @@
-package com.example.jetpack.auth
+package com.example.jetpack.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

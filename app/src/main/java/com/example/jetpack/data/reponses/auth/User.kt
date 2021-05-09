@@ -1,4 +1,4 @@
-package com.example.jetpack.reponses.auth
+package com.example.jetpack.data.reponses.auth
 
 data class User(
     val access_token: String,

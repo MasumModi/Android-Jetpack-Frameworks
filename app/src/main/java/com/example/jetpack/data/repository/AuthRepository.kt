@@ -1,6 +1,6 @@
-package com.example.jetpack.repository
+package com.example.jetpack.data.repository
 
-import com.example.jetpack.network.AuthApi
+import com.example.jetpack.data.network.AuthApi
 
 class AuthRepository(private val api: AuthApi) : BaseRepository() {
 

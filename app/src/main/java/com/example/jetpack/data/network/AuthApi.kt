@@ -1,6 +1,6 @@
-package com.example.jetpack.network
+package com.example.jetpack.data.network
 
-import com.example.jetpack.reponses.auth.LoginResponse
+import com.example.jetpack.data.reponses.auth.LoginResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
