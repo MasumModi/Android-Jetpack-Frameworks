@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.jetpack.data.network.Resource
 import com.example.jetpack.ui.auth.LoginFragment
+import com.example.jetpack.ui.base.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 
 fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {
@@ -42,12 +43,15 @@ fun Fragment.handleApiError(
     retry: (() -> Unit)? = null
 ) {
     when {
-        failure.isNetworkError!! -> requireView().snackBar("Please check internet connection", retry)
+        failure.isNetworkError!! -> requireView().snackBar(
+            "Please check internet connection",
+            retry
+        )
         failure.errorCode == 401 -> {
             if (this is LoginFragment) {
                 requireView().snackBar("You've entered incorrect email or password")
             } else {
-
+                (this as BaseFragment<*, *, *>).logout()
             }
         }
         else -> {

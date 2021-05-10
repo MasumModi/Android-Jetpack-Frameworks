@@ -1,6 +1,7 @@
 package com.example.jetpack.data.repository
 
 import com.example.jetpack.data.network.Resource
+import com.example.jetpack.data.network.UserApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
@@ -27,5 +28,9 @@ abstract class BaseRepository {
                 }
             }
         }
+    }
+
+    suspend fun logout(api: UserApi) = safeApiCall {
+        api.logout()
     }
 }

@@ -29,7 +29,7 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             binding.progressBar.visible(it is Resource.Loading)
-            binding.btnLogin.enable(true)
+            binding.btnLogin.enable(it is Resource.Loading)
             when (it) {
                 is Resource.Success -> {
                     lifecycleScope.launch {
@@ -37,22 +37,24 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
                     }
                     requireActivity().startNewActivity(HomeActivity::class.java)
                 }
-                is Resource.Failure -> handleApiError(it)
+                is Resource.Failure -> handleApiError(it) { performLogin() }
             }
         })
 
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString().trim()
-            val password = binding.etPassword.text.toString().trim()
-            binding.btnLogin.enable(false)
-            viewModel.login(email, password)
+            performLogin()
         }
 
         binding.etPassword.addTextChangedListener {
             val email = binding.etEmail.text.toString().trim()
             binding.btnLogin.enable(email.isNotEmpty() && it.toString().isNotEmpty())
         }
+    }
 
+    private fun performLogin() {
+        val email = binding.etEmail.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+        viewModel.login(email, password)
     }
 
     override fun getViewModel() = AuthViewModel::class.java
