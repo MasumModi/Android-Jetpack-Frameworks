@@ -30,7 +30,7 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
             binding.btnLogin.enable(true)
             when (it) {
                 is Resource.Success -> {
-                    viewModel.saveAuthToken(it.value.user.access_token)
+                    it.value.user.access_token?.let { it1 -> viewModel.saveAuthToken(it1) }
                     requireActivity().startNewActivity(HomeActivity::class.java)
                 }
                 is Resource.Failure -> {
