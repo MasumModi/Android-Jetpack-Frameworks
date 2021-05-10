@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jetpack"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.jetpack.ui.auth.AuthActivity"></activity>
+        <activity android:name=".ui.home.HomeActivity"></activity>
+        <activity android:name=".ui.auth.AuthActivity" />
         <activity android:name=".ui.splash.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
