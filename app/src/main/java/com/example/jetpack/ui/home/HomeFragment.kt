@@ -17,10 +17,8 @@ import kotlinx.coroutines.runBlocking
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding, UserRepository>() {
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         binding.progressBar.visible(false)
 
